@@ -1,7 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+// Enable CORS
+app.use(cors());
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -11,9 +15,8 @@ const mongoUsername = process.env.MONGO_USERNAME || 'root';
 const mongoPassword = process.env.MONGO_PASSWORD || 'example';
 const mongoHost = process.env.MONGO_HOST || 'localhost';
 const mongoPort = process.env.MONGO_PORT || 27017;
-const mongoDatabase = process.env.MONGO_DATABASE || 'mydatabase';
 
-const mongoUri = `mongodb://${mongoUsername}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDatabase}`;
+const mongoUri = `mongodb://${mongoUsername}:${mongoPassword}@${mongoHost}:${mongoPort}`;
 
 // MongoDB connection
 mongoose.connect(mongoUri, {
