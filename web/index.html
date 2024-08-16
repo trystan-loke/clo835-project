@@ -15,7 +15,7 @@
           document.getElementById("demo").innerHTML = JSON.stringify(myObj);
         }
       };
-      xmlhttp.open("GET", "http://nodejs-service:3000/items", true);
+      xmlhttp.open("GET", "/api/items", true);
       xmlhttp.send();
     </script>
 </body>
